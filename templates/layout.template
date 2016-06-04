@@ -1,4 +1,4 @@
-{# _myapp/templates/layout.html_ #}
+{# _texla_api/templates/layout.template_ #}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -72,8 +72,8 @@
 </div>
 <!-- /.container -->
 
-<!-- jQuery Version 1.11.1 -->
-<script src="{{ url_for('static', filename='js/lib/jquery.js') }}"></script>
+<!-- jQuery Version 2.2.4 -->
+<script src="{{ url_for('static', filename='js/lib/jquery-1.12.4.js') }}"></script>
 
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>

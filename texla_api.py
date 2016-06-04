@@ -1,8 +1,8 @@
-import log
+import texla_lib.log
 from flask import Flask, request, jsonify, render_template
 import json
 import os, random, string
-import texla_helper
+import texla_helper as converter
 
 app = Flask('texla_api', instance_relative_config=True)
 # Load the default configuration
@@ -14,11 +14,11 @@ app.config.from_object('config')
 def welcome():
     if request.method == 'POST':
         if request.form['sourceCode']:
-            return request.form['sourceCode']
+            return converter.convert_text_simple(request.form['sourceCode'], request.form['lang'])
         elif request.files['sourceFile']:
-            return 'Source fileeee'
+            return 'Source file'
     else:
-        return render_template('index.html')
+        return render_template('index.template')
 
 if __name__ == '__main__':
         app.run(host="127.0.0.1", port=5000)

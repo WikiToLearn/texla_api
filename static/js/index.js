@@ -1,9 +1,9 @@
-$(document).ready(function(){
-  console.warn("ready");
+// Shorthand for $( document ).ready()
+$(function() {
   $('#convertButton').click(function(){
-    console.warn(hdhdhd);
     var sourceCode = $('#sourceCode').val();
-    $.POST("/",{sourceCode : sourceCode},function(result){
+    var lang = $('#lang').val();
+    $.post('http://localhost:5000/', {sourceCode:sourceCode, lang:lang}).done(function (result) {
       $('#result').html(result);
     });
   });

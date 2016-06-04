@@ -10,8 +10,8 @@ import texla_lib.texla.PageTree.Exporter as exporter
 def convert_text_simple(text, lang):
     '''This function convert a tex document in a single
     wikitext output collapsing the content at the  -1 level'''
-    config = {"input_path":filein,
-              "output_path":fileout,
+    config = {"input_path":"",
+              "output_path":"",
               "doc_title":"texla_min",
               "lang":lang,
               "keywords":json.loads(
