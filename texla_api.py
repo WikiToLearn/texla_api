@@ -2,6 +2,8 @@ import log
 from flask import Flask, request, jsonify, render_template
 import json
 import os, random, string
+from texla.Parser import Parser
+from texla.Renderers.MediaWikiRenderer import MediaWikiRenderer
 
 app = Flask('texla_api', instance_relative_config=True)
 # Load the default configuration
