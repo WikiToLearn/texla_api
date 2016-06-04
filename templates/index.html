@@ -6,14 +6,43 @@
 <div class="row">
   <h2>Welcome on TEXLA</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
-  sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
-  Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
-  Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
-  Excepteur sint occaecat cupidatat non proident,
-  sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</row>
-<div class="row">
-  
+    sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+    Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+    Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+    Excepteur sint occaecat cupidatat non proident,
+    sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+  </row>
+  <div class="row">
+    <div class="col-md-6">
+      <form action="/" method="POST" enctype="multipart/form-data">
+        <div class="form-group">
+          <label for="exampleInputEmail1">Insert your source code here...</label>
+          <textarea type="text" class="form-control" rows="5" id="sourceCode" name="sourceCode" placeholder="Your tex source code"></textarea>
+        </div>
+        <div class="form-group">
+          <label for="exampleInputFile">or upload a source file:</label>
+          <input type="file" id="sourceFile" name="sourceFile">
+        </div>
+        <div class="form-group">
+          <label for="sel1">Select your language:</label>
+          <select class="form-control" id="sel1">
+            <option>IT</option>
+            <option>EN</option>
+            <option>ES</option>
+            <option>DE</option>
+            <option>FR</option>
+          </select>
+        </div>
+        <button type="submit" class="btn btn-default" id="convertButton">Submit</button>
+      </form>
+    </div>
+    <div class="col-md-6">
+      <div class="form-group">
+        <label for="comment">Result:</label>
+        <textarea class="form-control" rows="20" id="result" readonly="true"></textarea>
+      </div>
+    </div>
+  </div>
 </div>
 <!--{{ super() }}
 {% if name %}

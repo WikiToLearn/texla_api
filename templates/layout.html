@@ -66,18 +66,20 @@
   <div class="container">
     {% block container %}
     {% endblock %}
-    </div>
-    <!-- /.row -->
-
   </div>
-  <!-- /.container -->
+  <!-- /.row -->
 
-  <!-- jQuery Version 1.11.1 -->
-  <script src="{{ url_for('static', filename='js/lib/jquery.js') }}"></script>
+</div>
+<!-- /.container -->
 
-  <!-- Bootstrap Core JavaScript -->
-  <script src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>
+<!-- jQuery Version 1.11.1 -->
+<script src="{{ url_for('static', filename='js/lib/jquery.js') }}"></script>
 
+<!-- Bootstrap Core JavaScript -->
+<script src="{{ url_for('static', filename='js/lib/bootstrap.min.js') }}"></script>
+
+<!-- Custom scripts -->
+<script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>
 
 </html>
