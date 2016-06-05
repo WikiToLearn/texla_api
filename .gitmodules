@@ -1,3 +1,3 @@
 [submodule "texla_lib"]
 	path = texla_lib
-	url = git@github.com:WikiToLearn/texla.git
+	url = https://github.com/WikiToLearn/texla.git
