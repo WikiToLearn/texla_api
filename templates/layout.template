@@ -80,6 +80,9 @@ body {
 <!-- Bootstrap Core JavaScript -->
 <script src="{{ url_for('static', filename='js/bootstrap.min.js') }}"></script>
 
+<!-- Clipboard.js -->
+<script src="{{ url_for('static', filename='js/clipboard.min.js') }}"></script>
+
 <!-- Custom scripts -->
 <script src="{{ url_for('static', filename='js/index.js') }}"></script>
 </body>

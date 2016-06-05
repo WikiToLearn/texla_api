@@ -1,5 +1,6 @@
 // Shorthand for $( document ).ready()
 $(function() {
+  new Clipboard('#copyButton');
 
   function successHandler(result){
     $('#spinner').empty();
