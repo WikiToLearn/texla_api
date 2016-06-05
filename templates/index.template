@@ -1,10 +1,10 @@
 {# _texla_api/templates/index.template_ #}
 
 {% extends "layout.template" %}
-{% block title %}TEXLA - a simply tex to wikitext converter{% endblock %}
+{% block title %}TeXLa - a simply tex to wikitext converter{% endblock %}
 {% block container %}
 <div class="row">
-  <h2>Welcome on TEXLA</h2>
+  <h2>Welcome on TeXLa</h2>
   <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
     sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
     Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
