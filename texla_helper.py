@@ -21,7 +21,6 @@ def convert_text_simple(text, lang):
               "create_index":0,
               }
     logging.info('######## STARTING PARSING ########')
-    text = check_source(text)
     p = Parser(config)
     tree = p.parse(text)
     n_blocks = tree.n_blocks()
@@ -40,9 +39,3 @@ def convert_text_simple(text, lang):
     output_text = rend.tree.root_page.text
     logging.info('######## FINISHED ########')
     return output_text.strip()
-
-def check_source(text):
-    '''checking if the source has \begin{document}'''
-    if not ("\\begin{document}" in text):
-        text = "\\begin{document}"+text+ "\\end{document}"
-    return text
