@@ -17,7 +17,7 @@
       <form action="/convert" method="POST" enctype="multipart/form-data" id="sourceForm">
         <div class="form-group">
           <label for="sourceCode">Insert your source code here...</label>
-          <textarea type="text" class="form-control" rows="5" id="sourceCode" name="sourceCode" placeholder="Your tex source code"></textarea>
+          <textarea type="text" class="form-control" rows="10" id="sourceCode" name="sourceCode" placeholder="Your tex source code"></textarea>
         </div>
         <div class="form-group">
           <label for="sourceFile">or upload a source file:</label>
@@ -31,7 +31,8 @@
           </select>
         </div>
       </form>
-        <button class="btn btn-default" id="convertButton">Submit</button>
+        <progress></progress>
+        <button class="btn btn-default" id="convertButton">Convert!</button>
     </div>
     <div class="col-md-6">
       <div class="form-group">
