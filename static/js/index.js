@@ -1,28 +1,36 @@
 // Shorthand for $( document ).ready()
 $(function() {
 
-  function progressHandlingFunction(e){
-    if(e.lengthComputable){
-      $('progress').attr({value:e.loaded,max:e.total});
-    }
+  function successHandler(result){
+    $('#spinner').empty();
+    $('#result').html(result);
+  }
+
+  function beforeSendHandler(){
+    $('#spinner').html("<i class='fa fa-spinner fa-spin'></i>");
   }
 
   $(':file').change(function(){
+    $('#inputsError').empty();
+    $('#sourceFileError').empty();
     var file = this.files[0];
-    //var name = file.name;
     var type = file.type;
     if(type !== 'text/x-tex'){
-      alert("Sorry, extension file not valid!");
+      $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
       document.getElementById('sourceForm').reset();
     }
   });
 
   $('#convertButton').click(function(){
+    $('#inputsError').empty();
     var sourceCode = $('#sourceCode').val();
     var sourceFile = $('#sourceFile').val();
     var lang = $('#lang').val();
     if(!sourceCode && !sourceFile){
-      alert("Please, insert a source text or a source file!");
+      $('#inputsError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a source text or a file.");
+      return;
+    }else if(sourceCode && sourceFile){
+      $('#inputsError').html("<i class='fa fa-frown-o' aria-hidden='true'></i>&nbsp;Sorry! Cannot convert source text and file together!");
       return;
     }else if(sourceCode){
       $.post('/convert', {sourceCode:sourceCode, lang:lang}).done(function (result) {
@@ -36,14 +44,11 @@ $(function() {
         type: 'POST',
         xhr: function() {  // Custom XMLHttpRequest
           var myXhr = $.ajaxSettings.xhr();
-          if(myXhr.upload){ // Check if upload property exists
-            myXhr.upload.addEventListener('progress',progressHandlingFunction, false); // For handling the progress of the upload
-          }
           return myXhr;
         },
         //Ajax events
-        //beforeSend: beforeSendHandler,
-        success: alert("success"),
+        beforeSend: beforeSendHandler,
+        success: successHandler,
         //error: errorHandler,
         // Form data
         data: formData,

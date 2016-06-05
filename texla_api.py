@@ -28,9 +28,8 @@ def convert():
             return converter.convert_text_simple(request.form['sourceCode'], request.form['lang'])
         elif request.files['sourceFile'] and allowed_file(request.files['sourceFile'].filename):
             f = request.files['sourceFile'].read()
-            logging.info(f)
-            logging.info(request.form['lang'])
-            return converter.convert_text_simple(str(f), request.form['lang'])
+            testo = str(f,'utf-8')
+            return converter.convert_text_simple(testo, request.form['lang'])
 
 if __name__ == '__main__':
         app.run(host="0.0.0.0", port=80)
