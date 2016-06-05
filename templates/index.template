@@ -14,24 +14,24 @@
   </row>
   <div class="row">
     <div class="col-md-6">
-
+      <form action="/convert" method="POST" enctype="multipart/form-data" id="sourceForm">
         <div class="form-group">
-          <label for="exampleInputEmail1">Insert your source code here...</label>
+          <label for="sourceCode">Insert your source code here...</label>
           <textarea type="text" class="form-control" rows="5" id="sourceCode" name="sourceCode" placeholder="Your tex source code"></textarea>
         </div>
         <div class="form-group">
-          <label for="exampleInputFile">or upload a source file:</label>
+          <label for="sourceFile">or upload a source file:</label>
           <input type="file" id="sourceFile" name="sourceFile">
         </div>
         <div class="form-group">
-          <label for="sel1">Select your language:</label>
+          <label for="lang">Select your language:</label>
           <select class="form-control" id="lang">
             <option value="it">Italian</option>
             <option value="en">English</option>
           </select>
         </div>
+      </form>
         <button class="btn btn-default" id="convertButton">Submit</button>
-
     </div>
     <div class="col-md-6">
       <div class="form-group">
