@@ -37,5 +37,5 @@ def convert_text_simple(text, lang):
     tree.fix_references()
     #getting text of root_page
     output_text = rend.tree.root_page.text
-    return output_text
+    return output_text.strip()
     logging.info('Finished')
