@@ -3,7 +3,7 @@
 {% extends "layout.template" %}
 {% block title %}TeXLa - a simply tex to wikitext converter{% endblock %}
 {% block container %}
-<div class="row">
+<div class="row row-eq-height">
 <h2>Welcome on TeXLa</h2>
 <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
 sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -11,8 +11,6 @@ Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliqu
 Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
 Excepteur sint occaecat cupidatat non proident,
 sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
-</row>
-<div class="row">
 <div class="col-md-6">
 <form action="/convert" method="POST" enctype="multipart/form-data" id="sourceForm">
 <div class="form-group">
@@ -32,18 +30,18 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </select>
 </div>
 </form>
-<button class="btn btn-success" id="convertButton"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp;Convert!</button><span id="spinner"></span>
+<button class="btn btn-success" id="convertButton"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp;Convert</button><span id="spinner"></span>
+<button class="btn btn-danger pull-right" id="resetButton"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Reset</button>
 <span class="help-block" id="inputsError"></span>
 </div>
 <div class="col-md-6">
 <div class="form-group">
 <label for="comment">Result:</label>
-<button class="btn btn-warning pull-right" id="copyButton" data-clipboard-target="#result">
-<i class="fa fa-clipboard" aria-hidden="true" alt="Copy to clipboard"></i>&nbsp; Copy!
+<textarea class="form-control" rows="18" id="result" readonly="true"></textarea>
+</div>
+<button class="btn btn-warning center-block" id="copyButton" data-toggle="tooltip" data-placement="top" data-trigger="manual" title="Copied!" data-clipboard-target="#result">
+<i class="fa fa-clipboard" aria-hidden="true" alt="Copy to clipboard"></i>&nbsp; Copy
 </button>
-<textarea class="form-control clearfix" rows="20" id="result" readonly="true"></textarea>
-</div>
-</div>
 </div>
 </div>
 {% endblock %}

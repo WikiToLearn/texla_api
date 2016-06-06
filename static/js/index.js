@@ -1,6 +1,7 @@
 // Shorthand for $( document ).ready()
 $(function() {
   new Clipboard('#copyButton');
+    $('[data-toggle="tooltip"]').tooltip();
 
   function successHandler(result){
     $('#spinner').empty();
@@ -11,15 +12,31 @@ $(function() {
     $('#spinner').html("<i class='fa fa-spinner fa-spin'></i>");
   }
 
-  $(':file').change(function(){
+  $('#sourceCode').change(function(){
+    $('#sourceFile').val('');
+  });
+
+  $('#sourceFile').change(function(){
+    $('#sourceCode').val('');
     $('#inputsError').empty();
     $('#sourceFileError').empty();
     var file = this.files[0];
     var type = file.type;
     if(type !== 'text/x-tex'){
       $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
-      document.getElementById('sourceForm').reset();
+      $('#sourceFile').val('');
     }
+  });
+
+  $('#copyButton').click(function(){
+    $('#copyButton').tooltip('show');
+    setTimeout(function(){
+        $('#copyButton').tooltip('hide');
+    }, 1000);
+  });
+
+  $('#resetButton').click(function(){
+    document.getElementById('sourceForm').reset();
   });
 
   $('#convertButton').click(function(){

@@ -69,9 +69,6 @@ body {
 {% block container %}
 {% endblock %}
 </div>
-<!-- /.row -->
-
-</div>
 <!-- /.container -->
 
 <!-- jQuery Version 2.2.4 -->
