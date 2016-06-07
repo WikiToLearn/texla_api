@@ -19,7 +19,15 @@ def allowed_file(filename):
 
 @app.route('/', methods=['GET'])
 def welcome():
-        return render_template('index.template')
+    return render_template('index.template')
+
+@app.route('/contact_us', methods=['GET'])
+def contact_us():
+    return render_template('contact_us.template')
+
+@app.route('/about', methods=['GET'])
+def about():
+    return render_template('about.template')
 
 @app.route('/convert', methods=['POST'])
 def convert():

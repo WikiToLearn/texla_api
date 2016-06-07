@@ -1,0 +1,14 @@
+{# _texla_api/templates/about.template_ #}
+
+{% extends "layout.template" %}
+{% block title %}TeXLa - About{% endblock %}
+{% block container %}
+<div class="row center-block">
+<h2>What's TeXLa?</h2>
+<p>Lorem ipsum dolor sit amet, consectetur adipisicing elit,
+sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
+Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.
+Excepteur sint occaecat cupidatat non proident,
+sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+{% endblock %}
