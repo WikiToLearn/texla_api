@@ -13,10 +13,6 @@ $(function() {
     $('#spinner').html("<i class='fa fa-spinner fa-spin'></i>");
   }
 
-  /*$('#sourceCode').change(function(){
-    $('#sourceFile').val('');
-  });*/
-
   $('#sourceFile').change(function(){
     //$('#sourceCode').val('');
     $('#inputsError').empty();
@@ -24,6 +20,7 @@ $(function() {
     var file = this.files[0];
     if(file){
       var type = file.type;
+      console.log(type);
       if(type !== 'text/x-tex'){
         $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
         $('#sourceFile').val('');
@@ -47,8 +44,6 @@ $(function() {
     var sourceCode = $('#sourceCode').val();
     var sourceFile2 = document.getElementById('sourceFile').files[0];
     var sourceFile = document.getElementById('sourceFile').files.length;
-    console.log(sourceCode);
-    console.log(sourceFile);
     var lang = $('#lang').val();
     if(!sourceCode && !sourceFile){
       $('#inputsError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a source text or a file.");
