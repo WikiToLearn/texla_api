@@ -21,7 +21,7 @@ $(function() {
     if(file){
       var type = file.type;
       console.log(type);
-      if(type !== 'text/x-tex'){
+      if(type !== 'text/x-tex' && type !== 'application/x-tex'){
         $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
         $('#sourceFile').val('');
       }
