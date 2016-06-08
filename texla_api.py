@@ -1,7 +1,6 @@
 import texla_lib.log
 import logging
 from flask import Flask, request, jsonify, render_template
-from werkzeug import secure_filename
 import json
 import os, random, string
 import texla_helper as converter
@@ -35,9 +34,8 @@ def convert():
         if request.form['sourceCode']:
             return converter.convert_text_simple(request.form['sourceCode'], request.form['lang'])
         elif request.files['sourceFile'] and allowed_file(request.files['sourceFile'].filename):
-            f = request.files['sourceFile'].read()
-            testo = str(f,'utf-8')
-            return converter.convert_text_simple(testo, request.form['lang'])
+            text = request.files['sourceFile'].read().decode('utf-8')
+            return converter.convert_text_simple(text, request.form['lang'])
 
 if __name__ == '__main__':
         app.run(host="0.0.0.0", port=80)
