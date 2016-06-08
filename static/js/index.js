@@ -15,13 +15,15 @@ $(function() {
 
   $('#sourceFile').change(function(){
     //$('#sourceCode').val('');
+    var allowedFiles = [".tex"];
+    var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
     $('#inputsError').empty();
     $('#sourceFileError').empty();
     var file = this.files[0];
     if(file){
-      var type = this.files[0].type;
-      console.log(type);
-      if(type !== 'text/x-tex' && type !== 'application/x-tex'){
+      var type = file.type;
+      var name = file.name;
+      if(type !== 'text/x-tex' && type !== 'application/x-tex' && !regex.test(name.toLowerCase())){
         $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
         //$('#sourceFile').val('');
       }
