@@ -19,9 +19,13 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </div>
 <div class="form-group">
 <label for="sourceFile">or upload a source file:</label>
-<input type="file" id="sourceFile" name="sourceFile">
+<div class="fileinput fileinput-new input-group" data-provides="fileinput">
+  <div class="form-control" data-trigger="fileinput"><i class="glyphicon glyphicon-file fileinput-exists"></i> <span class="fileinput-filename"></span></div>
+  <span class="input-group-addon btn btn-default btn-file"><span class="fileinput-new">Select file</span><span class="fileinput-exists">Change</span><input type="file" id="sourceFile" name="sourceFile"></span>
+  <a href="#" class="input-group-addon btn btn-default fileinput-exists" data-dismiss="fileinput">Remove</a>
 </div>
 <span class="help-block" id="sourceFileError"></span>
+</div>
 <div class="form-group">
 <label for="lang">Select your language:</label>
 <select class="form-control" id="lang">
@@ -30,8 +34,8 @@ sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
 </select>
 </div>
 </form>
-<button class="btn btn-danger" id="resetButton"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Reset</button>
-<button class="btn btn-success pull-right" id="convertButton"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp;Convert</button>&nbsp;&nbsp;<span id="spinner"></span>
+<button class="btn btn-danger" id="resetButton"><i class="fa fa-undo" aria-hidden="true"></i>&nbsp;Reset</button><span id="spinner"></span>
+<button class="btn btn-success pull-right clearfix" id="convertButton"><i class="fa fa-exchange" aria-hidden="true"></i>&nbsp;Convert</button>
 <span class="help-block" id="inputsError"></span>
 </div>
 <div class="col-md-6">

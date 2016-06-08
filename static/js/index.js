@@ -1,7 +1,8 @@
 // Shorthand for $( document ).ready()
 $(function() {
   new Clipboard('#copyButton');
-    $('[data-toggle="tooltip"]').tooltip();
+  $('[data-toggle="tooltip"]').tooltip();
+  $('.fileinput').fileinput()
 
   function successHandler(result){
     $('#spinner').empty();
@@ -12,19 +13,21 @@ $(function() {
     $('#spinner').html("<i class='fa fa-spinner fa-spin'></i>");
   }
 
-  $('#sourceCode').change(function(){
+  /*$('#sourceCode').change(function(){
     $('#sourceFile').val('');
-  });
+  });*/
 
   $('#sourceFile').change(function(){
-    $('#sourceCode').val('');
+    //$('#sourceCode').val('');
     $('#inputsError').empty();
     $('#sourceFileError').empty();
     var file = this.files[0];
-    var type = file.type;
-    if(type !== 'text/x-tex'){
-      $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
-      $('#sourceFile').val('');
+    if(file){
+      var type = file.type;
+      if(type !== 'text/x-tex'){
+        $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
+        $('#sourceFile').val('');
+      }
     }
   });
 
@@ -42,7 +45,10 @@ $(function() {
   $('#convertButton').click(function(){
     $('#inputsError').empty();
     var sourceCode = $('#sourceCode').val();
-    var sourceFile = $('#sourceFile').val();
+    var sourceFile2 = document.getElementById('sourceFile').files[0];
+    var sourceFile = document.getElementById('sourceFile').files.length;
+    console.log(sourceCode);
+    console.log(sourceFile);
     var lang = $('#lang').val();
     if(!sourceCode && !sourceFile){
       $('#inputsError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a source text or a file.");
@@ -56,9 +62,10 @@ $(function() {
       });
     }else if(sourceFile){
       var formData = new FormData($('#sourceForm')[0]);
+      //formData.delete('sourceCode');
       formData.append('lang', lang);
       $.ajax({
-        url: '/convert',  //Server script to process data
+        url: '/convert',
         type: 'POST',
         xhr: function() {  // Custom XMLHttpRequest
           var myXhr = $.ajaxSettings.xhr();
