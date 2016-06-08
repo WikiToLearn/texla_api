@@ -19,11 +19,11 @@ $(function() {
     $('#sourceFileError').empty();
     var file = this.files[0];
     if(file){
-      var type = file.type;
+      var type = this.files[0].type;
       console.log(type);
       if(type !== 'text/x-tex' && type !== 'application/x-tex'){
         $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
-        $('#sourceFile').val('');
+        //$('#sourceFile').val('');
       }
     }
   });
