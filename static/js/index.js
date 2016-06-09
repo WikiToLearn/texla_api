@@ -4,9 +4,9 @@ $(function() {
   $('[data-toggle="tooltip"]').tooltip();
   $('.fileinput').fileinput()
 
-  function successHandler(result){
+  function successHandler(results){
     $('#spinner').empty();
-    $('#result').html(result);
+    $('#result').html(results.wikitext);
   }
 
   function beforeSendHandler(){
@@ -14,7 +14,6 @@ $(function() {
   }
 
   $('#sourceFile').change(function(){
-    //$('#sourceCode').val('');
     var allowedFiles = [".tex"];
     var regex = new RegExp("([a-zA-Z0-9\s_\\.\-:])+(" + allowedFiles.join('|') + ")$");
     $('#inputsError').empty();
@@ -25,7 +24,6 @@ $(function() {
       var name = file.name;
       if(type !== 'text/x-tex' && type !== 'application/x-tex' && !regex.test(name.toLowerCase())){
         $('#sourceFileError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a .tex file.");
-        //$('#sourceFile').val('');
       }
     }
   });

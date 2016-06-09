@@ -32,10 +32,12 @@ def about():
 def convert():
     if request.method == 'POST':
         if request.form['sourceCode']:
-            return converter.convert_text_simple(request.form['sourceCode'], request.form['lang'])
+            result = converter.convert_text_simple(request.form['sourceCode'], request.form['lang'])
+            return jsonify(wikitext=result)
         elif request.files['sourceFile'] and allowed_file(request.files['sourceFile'].filename):
             text = request.files['sourceFile'].read().decode('utf-8')
-            return converter.convert_text_simple(text, request.form['lang'])
+            result = converter.convert_text_simple(text, request.form['lang'])
+            return jsonify(wikitext=result)
 
 if __name__ == '__main__':
         app.run(host="0.0.0.0", port=80)
