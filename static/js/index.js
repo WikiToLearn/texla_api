@@ -53,7 +53,7 @@ $(function() {
       return;
     }else if(sourceCode){
       $.post('/convert', {sourceCode:sourceCode, lang:lang}).done(function (result) {
-        $('#result').html(result);
+        $('#result').html(result.wikitext);
       });
     }else if(sourceFile){
       var formData = new FormData($('#sourceForm')[0]);
