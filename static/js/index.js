@@ -42,20 +42,19 @@ $(function() {
   $('#convertButton').click(function(){
     $('#inputsError').empty();
     var sourceCode = $('#sourceCode').val();
-    var sourceFile2 = document.getElementById('sourceFile').files[0];
     var sourceFile = document.getElementById('sourceFile').files.length;
     var lang = $('#lang').val();
-    if(!sourceCode && !sourceFile){
+    if(!sourceCode && sourceFile === 0){
       $('#inputsError').html("<i class='fa fa-exclamation'></i>&nbsp;Please, insert a source text or a file.");
       return;
-    }else if(sourceCode && sourceFile){
+    }else if(sourceCode && sourceFile > 0){
       $('#inputsError').html("<i class='fa fa-frown-o' aria-hidden='true'></i>&nbsp;Sorry! Cannot convert source text and file together!");
       return;
     }else if(sourceCode){
       $.post('/convert', {sourceCode:sourceCode, lang:lang}).done(function (result) {
         $('#result').html(result.wikitext);
       });
-    }else if(sourceFile){
+    }else if(sourceFile > 0){
       var formData = new FormData($('#sourceForm')[0]);
       //formData.delete('sourceCode');
       formData.append('lang', lang);
