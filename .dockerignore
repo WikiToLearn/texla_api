@@ -1,0 +1,6 @@
+.git/
+start-service.sh
+.dockerignore
+.gitignore
+.gitmodules
+Dockerfile
