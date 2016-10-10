@@ -1,4 +1,5 @@
- FROM python:3.5
+FROM python:3.5
+
 ADD ./sources.list /etc/apt/sources.list
 
 MAINTAINER wikitolearn sysadmin@wikitolearn.org
@@ -9,5 +10,6 @@ COPY . /app
 WORKDIR /app
 RUN pip install -r requirements.txt
 
-ENTRYPOINT ["python"]
-CMD ["texla_api.py"]
+EXPOSE 80/tcp
+
+ENTRYPOINT ["python","texla_api.py"]
