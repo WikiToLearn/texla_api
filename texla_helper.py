@@ -19,6 +19,7 @@ def convert_text_simple(text, lang):
               "collapse_content_level":-1,
               "base_path":'',
               "create_index":0,
+              "plugins": ["MathCheck", "spaces_check"]
               }
     logging.info('######## STARTING PARSING ########')
     p = Parser(config)
@@ -32,9 +33,8 @@ def convert_text_simple(text, lang):
     rend.start_rendering(tree)
     #collpasing tree
     tree = rend.tree
-    tree.collapse_content_level(config['collapse_content_level'])
-    tree.collapse_urls()
-    tree.fix_references()
+    rend.tree.collapse_tree(config['collapse_content_level'], 4)
+    #collapse the text in the right pages
     #getting text of root_page
     output_text = rend.tree.root_page.text
     logging.info('######## FINISHED ########')
